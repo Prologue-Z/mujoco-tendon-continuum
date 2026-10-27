@@ -1,0 +1,68 @@
+{
+  "release_version": "1.0.0",
+  "units": "SI (metres, kilograms, seconds, radians)",
+  "physics_timestep_s": 0.002,
+  "example_control_rate_hz": 50,
+  "nominal_link_length_sum_m": 0.451,
+  "segment_interface_offset_m": 0.003300000000000001,
+  "straight_base_to_tip_span_m": 0.45430000000000004,
+  "independent_tendon_drives": 3,
+  "virtual_position_actuators": 6,
+  "segments": {
+    "1": {
+      "links": 10,
+      "link_length_m": 0.0209,
+      "body_diameter_m": 0.056,
+      "link_mass_kg": 0.05,
+      "hinge_stiffness_nm_per_rad": 82.04235185414979,
+      "hinge_damping_nms_per_rad": 10.994413572551712,
+      "hinge_range_rad": [
+        -0.157,
+        0.157
+      ],
+      "axes": "Y for all hinges",
+      "tendon_axis_offset_m": 0.033,
+      "tendon_pairs": 1
+    },
+    "2": {
+      "links": 10,
+      "link_length_m": 0.0242,
+      "body_diameter_m": 0.06,
+      "link_mass_kg": 0.05,
+      "hinge_stiffness_nm_per_rad": 58.10429831594725,
+      "hinge_damping_nms_per_rad": 19.00216863281279,
+      "hinge_range_rad": [
+        -0.314,
+        0.314
+      ],
+      "axes": "alternating X and Y",
+      "tendon_axis_offset_m": 0.0247,
+      "tendon_radial_offset_m": 0.03493107499061545,
+      "tendon_pairs": 2
+    }
+  },
+  "virtual_position_actuator": {
+    "kp_n_per_m": 5000,
+    "kv_ns_per_m": 100,
+    "force_range_n": [
+      -500,
+      500
+    ],
+    "segment1_length_range_m": [
+      0.135,
+      0.31
+    ],
+    "segment2_length_range_m": [
+      0.07,
+      0.44
+    ]
+  },
+  "notes": [
+    "Stiffness and damping are per discretized hinge, shared within each segment.",
+    "Six virtual position actuators represent three independently driven opposing pairs.",
+    "The fixed-base component excludes the rigid arm, wrist, holder and ball.",
+    "Actuator gains and limits are retained from the source MJCF; this component demo is not a complete throwing-policy reproduction."
+  ],
+  "source_model_sha256": "c1f5ae109281e5c44771b7a478b107f0dfda2a2e5d8a26322225cd828f4721ae",
+  "identified_parameter_record_sha256": "2ca93f778a54adff39a590d20013b16758d8f6215b061b149c26026396518bf5"
+}

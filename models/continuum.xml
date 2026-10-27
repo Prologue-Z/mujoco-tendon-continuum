@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="tendon_driven_continuum">
+  <!--Two-segment continuum component; SI units; three opposing tendon pairs.-->
+  <compiler angle="radian" />
+  <option timestep="0.002" solver="Newton" iterations="100" tolerance="1e-10" gravity="0 0 -9.81" integrator="implicit">
+    <flag warmstart="enable" />
+  </option>
+  <default>
+    <geom type="cylinder" rgba="0.8 0.8 0.9 1" density="1000" />
+    <site type="sphere" size="0.003" rgba="1 0 0 1" />
+    <motor ctrlrange="-3 3" ctrllimited="true" />
+    <tendon stiffness="0" damping="0" width="0.0015" />
+  </default>
+  <visual />
+  <worldbody>
+    <light pos="1 -1 2" dir="-1 1 -2" diffuse="0.85 0.85 0.85" />
+    <geom name="floor" type="plane" size="1 1 0.1" rgba="0.93 0.94 0.95 1" contype="0" conaffinity="0" />
+    <body name="continuum_base" pos="0 0 0.08">
+      <site name="continuum_base_site" pos="0 0 0.01" />
+      <body name="seg1_s1" pos="0 0 0.01">
+        <joint name="j1_1" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+        <geom name="g1_1_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+        <geom name="g1_1_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+        <site name="s1_1_top" pos="0 0 0.0209" />
+        <site name="s1_1_t1" pos="0.033 0 0.01045" />
+        <site name="s1_1_t2" pos="-0.033 0 0.01045" />
+        <body name="seg1_s2" pos="0 0 0.0209">
+          <joint name="j1_2" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+          <geom name="g1_2_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+          <geom name="g1_2_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+          <site name="s1_2_top" pos="0 0 0.0209" />
+          <site name="s1_2_t1" pos="0.033 0 0.01045" />
+          <site name="s1_2_t2" pos="-0.033 0 0.01045" />
+          <body name="seg1_s3" pos="0 0 0.0209">
+            <joint name="j1_3" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+            <geom name="g1_3_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+            <geom name="g1_3_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+            <site name="s1_3_top" pos="0 0 0.0209" />
+            <site name="s1_3_t1" pos="0.033 0 0.01045" />
+            <site name="s1_3_t2" pos="-0.033 0 0.01045" />
+            <body name="seg1_s4" pos="0 0 0.0209">
+              <joint name="j1_4" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+              <geom name="g1_4_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+              <geom name="g1_4_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+              <site name="s1_4_top" pos="0 0 0.0209" />
+              <site name="s1_4_t1" pos="0.033 0 0.01045" />
+              <site name="s1_4_t2" pos="-0.033 0 0.01045" />
+              <body name="seg1_s5" pos="0 0 0.0209">
+                <joint name="j1_5" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+                <geom name="g1_5_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+                <geom name="g1_5_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+                <site name="s1_5_top" pos="0 0 0.0209" />
+                <site name="s1_5_t1" pos="0.033 0 0.01045" />
+                <site name="s1_5_t2" pos="-0.033 0 0.01045" />
+                <body name="seg1_s6" pos="0 0 0.0209">
+                  <joint name="j1_6" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+                  <geom name="g1_6_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+                  <geom name="g1_6_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+                  <site name="s1_6_top" pos="0 0 0.0209" />
+                  <site name="s1_6_t1" pos="0.033 0 0.01045" />
+                  <site name="s1_6_t2" pos="-0.033 0 0.01045" />
+                  <body name="seg1_s7" pos="0 0 0.0209">
+                    <joint name="j1_7" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+                    <geom name="g1_7_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+                    <geom name="g1_7_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+                    <site name="s1_7_top" pos="0 0 0.0209" />
+                    <site name="s1_7_t1" pos="0.033 0 0.01045" />
+                    <site name="s1_7_t2" pos="-0.033 0 0.01045" />
+                    <body name="seg1_s8" pos="0 0 0.0209">
+                      <joint name="j1_8" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+                      <geom name="g1_8_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+                      <geom name="g1_8_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+                      <site name="s1_8_top" pos="0 0 0.0209" />
+                      <site name="s1_8_t1" pos="0.033 0 0.01045" />
+                      <site name="s1_8_t2" pos="-0.033 0 0.01045" />
+                      <body name="seg1_s9" pos="0 0 0.0209">
+                        <joint name="j1_9" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+                        <geom name="g1_9_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+                        <geom name="g1_9_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+                        <site name="s1_9_top" pos="0 0 0.0209" />
+                        <site name="s1_9_t1" pos="0.033 0 0.01045" />
+                        <site name="s1_9_t2" pos="-0.033 0 0.01045" />
+                        <body name="seg1_s10" pos="0 0 0.0209">
+                          <joint name="j1_10" type="hinge" limited="true" damping="10.994413572551712" stiffness="82.04235185414979" springref="0" axis="0 1 0" range="-0.157 0.157" margin="0.003" />
+                          <geom name="g1_10_vis" type="cylinder" size="0.028" fromto="0 0 0 0 0 0.0209" mass="0" contype="0" conaffinity="0" />
+                          <geom name="g1_10_col" type="cylinder" size="0.028" fromto="0 0 0.003 0 0 0.014899999999999998" mass="0.05" />
+                          <site name="s1_10_top" pos="0 0 0.0209" />
+                          <site name="s1_10_t1" pos="0.033 0 0.01045" />
+                          <site name="s1_10_t2" pos="-0.033 0 0.01045" />
+                          <body name="seg2_s1" pos="0 0 0.0242">
+                            <joint name="j2_1" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="1 0 0" range="-0.314 0.314" margin="0.006" />
+                            <geom name="g2_1_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                            <geom name="g2_1_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                            <site name="s2_1_top" pos="0 0 0.0242" />
+                            <site name="s2_1_t1" pos="0.0247 0.0247 0.0121" />
+                            <site name="s2_1_t2" pos="-0.0247 0.0247 0.0121" />
+                            <site name="s2_1_t3" pos="-0.0247 -0.0247 0.0121" />
+                            <site name="s2_1_t4" pos="0.0247 -0.0247 0.0121" />
+                            <body name="seg2_s2" pos="0 0 0.0242">
+                              <joint name="j2_2" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="0 1 0" range="-0.314 0.314" margin="0.006" />
+                              <geom name="g2_2_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                              <geom name="g2_2_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                              <site name="s2_2_top" pos="0 0 0.0242" />
+                              <site name="s2_2_t1" pos="0.0247 0.0247 0.0121" />
+                              <site name="s2_2_t2" pos="-0.0247 0.0247 0.0121" />
+                              <site name="s2_2_t3" pos="-0.0247 -0.0247 0.0121" />
+                              <site name="s2_2_t4" pos="0.0247 -0.0247 0.0121" />
+                              <body name="seg2_s3" pos="0 0 0.0242">
+                                <joint name="j2_3" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="1 0 0" range="-0.314 0.314" margin="0.006" />
+                                <geom name="g2_3_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                <geom name="g2_3_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                <site name="s2_3_top" pos="0 0 0.0242" />
+                                <site name="s2_3_t1" pos="0.0247 0.0247 0.0121" />
+                                <site name="s2_3_t2" pos="-0.0247 0.0247 0.0121" />
+                                <site name="s2_3_t3" pos="-0.0247 -0.0247 0.0121" />
+                                <site name="s2_3_t4" pos="0.0247 -0.0247 0.0121" />
+                                <body name="seg2_s4" pos="0 0 0.0242">
+                                  <joint name="j2_4" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="0 1 0" range="-0.314 0.314" margin="0.006" />
+                                  <geom name="g2_4_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                  <geom name="g2_4_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                  <site name="s2_4_top" pos="0 0 0.0242" />
+                                  <site name="s2_4_t1" pos="0.0247 0.0247 0.0121" />
+                                  <site name="s2_4_t2" pos="-0.0247 0.0247 0.0121" />
+                                  <site name="s2_4_t3" pos="-0.0247 -0.0247 0.0121" />
+                                  <site name="s2_4_t4" pos="0.0247 -0.0247 0.0121" />
+                                  <body name="seg2_s5" pos="0 0 0.0242">
+                                    <joint name="j2_5" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="1 0 0" range="-0.314 0.314" margin="0.006" />
+                                    <geom name="g2_5_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                    <geom name="g2_5_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                    <site name="s2_5_top" pos="0 0 0.0242" />
+                                    <site name="s2_5_t1" pos="0.0247 0.0247 0.0121" />
+                                    <site name="s2_5_t2" pos="-0.0247 0.0247 0.0121" />
+                                    <site name="s2_5_t3" pos="-0.0247 -0.0247 0.0121" />
+                                    <site name="s2_5_t4" pos="0.0247 -0.0247 0.0121" />
+                                    <body name="seg2_s6" pos="0 0 0.0242">
+                                      <joint name="j2_6" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="0 1 0" range="-0.314 0.314" margin="0.006" />
+                                      <geom name="g2_6_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                      <geom name="g2_6_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                      <site name="s2_6_top" pos="0 0 0.0242" />
+                                      <site name="s2_6_t1" pos="0.0247 0.0247 0.0121" />
+                                      <site name="s2_6_t2" pos="-0.0247 0.0247 0.0121" />
+                                      <site name="s2_6_t3" pos="-0.0247 -0.0247 0.0121" />
+                                      <site name="s2_6_t4" pos="0.0247 -0.0247 0.0121" />
+                                      <body name="seg2_s7" pos="0 0 0.0242">
+                                        <joint name="j2_7" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="1 0 0" range="-0.314 0.314" margin="0.006" />
+                                        <geom name="g2_7_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                        <geom name="g2_7_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                        <site name="s2_7_top" pos="0 0 0.0242" />
+                                        <site name="s2_7_t1" pos="0.0247 0.0247 0.0121" />
+                                        <site name="s2_7_t2" pos="-0.0247 0.0247 0.0121" />
+                                        <site name="s2_7_t3" pos="-0.0247 -0.0247 0.0121" />
+                                        <site name="s2_7_t4" pos="0.0247 -0.0247 0.0121" />
+                                        <body name="seg2_s8" pos="0 0 0.0242">
+                                          <joint name="j2_8" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="0 1 0" range="-0.314 0.314" margin="0.006" />
+                                          <geom name="g2_8_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                          <geom name="g2_8_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                          <site name="s2_8_top" pos="0 0 0.0242" />
+                                          <site name="s2_8_t1" pos="0.0247 0.0247 0.0121" />
+                                          <site name="s2_8_t2" pos="-0.0247 0.0247 0.0121" />
+                                          <site name="s2_8_t3" pos="-0.0247 -0.0247 0.0121" />
+                                          <site name="s2_8_t4" pos="0.0247 -0.0247 0.0121" />
+                                          <body name="seg2_s9" pos="0 0 0.0242">
+                                            <joint name="j2_9" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="1 0 0" range="-0.314 0.314" margin="0.006" />
+                                            <geom name="g2_9_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                            <geom name="g2_9_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                            <site name="s2_9_top" pos="0 0 0.0242" />
+                                            <site name="s2_9_t1" pos="0.0247 0.0247 0.0121" />
+                                            <site name="s2_9_t2" pos="-0.0247 0.0247 0.0121" />
+                                            <site name="s2_9_t3" pos="-0.0247 -0.0247 0.0121" />
+                                            <site name="s2_9_t4" pos="0.0247 -0.0247 0.0121" />
+                                            <body name="seg2_s10" pos="0 0 0.0242">
+                                              <joint name="j2_10" type="hinge" limited="true" damping="19.00216863281279" stiffness="58.10429831594725" springref="0" axis="0 1 0" range="-0.314 0.314" margin="0.006" />
+                                              <geom name="g2_10_vis" type="cylinder" size="0.03" fromto="0 0 0 0 0 0.0242" mass="0" contype="0" conaffinity="0" />
+                                              <geom name="g2_10_col" type="cylinder" size="0.03" fromto="0 0 0.003 0 0 0.0182" mass="0.05" />
+                                              <site name="s2_10_top" pos="0 0 0.0242" />
+                                              <site name="s2_10_t1" pos="0.0247 0.0247 0.0121" />
+                                              <site name="s2_10_t2" pos="-0.0247 0.0247 0.0121" />
+                                              <site name="s2_10_t3" pos="-0.0247 -0.0247 0.0121" />
+                                              <site name="s2_10_t4" pos="0.0247 -0.0247 0.0121" />
+                                              <site name="continuum_tip" pos="0 0 0.0242" size="0.005" />
+                                            </body>
+                                          </body>
+                                        </body>
+                                      </body>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <tendon>
+    <spatial name="t_seg1_xp" width="0.002" rgba="1 0 0 1">
+      <site site="continuum_base_site" />
+      <site site="s1_1_t1" />
+      <site site="s1_2_t1" />
+      <site site="s1_3_t1" />
+      <site site="s1_4_t1" />
+      <site site="s1_5_t1" />
+      <site site="s1_6_t1" />
+      <site site="s1_7_t1" />
+      <site site="s1_8_t1" />
+      <site site="s1_9_t1" />
+      <site site="s1_10_t1" />
+    </spatial>
+    <spatial name="t_seg1_xn" width="0.002" rgba="0 0 1 1">
+      <site site="continuum_base_site" />
+      <site site="s1_1_t2" />
+      <site site="s1_2_t2" />
+      <site site="s1_3_t2" />
+      <site site="s1_4_t2" />
+      <site site="s1_5_t2" />
+      <site site="s1_6_t2" />
+      <site site="s1_7_t2" />
+      <site site="s1_8_t2" />
+      <site site="s1_9_t2" />
+      <site site="s1_10_t2" />
+    </spatial>
+    <spatial name="t_seg2_xp" width="0.002" rgba="1 1 0 1">
+      <site site="s1_10_top" />
+      <site site="s2_1_t1" />
+      <site site="s2_2_t1" />
+      <site site="s2_3_t1" />
+      <site site="s2_4_t1" />
+      <site site="s2_5_t1" />
+      <site site="s2_6_t1" />
+      <site site="s2_7_t1" />
+      <site site="s2_8_t1" />
+      <site site="s2_9_t1" />
+      <site site="s2_10_t1" />
+    </spatial>
+    <spatial name="t_seg2_yp" width="0.002" rgba="1 0 1 1">
+      <site site="s1_10_top" />
+      <site site="s2_1_t2" />
+      <site site="s2_2_t2" />
+      <site site="s2_3_t2" />
+      <site site="s2_4_t2" />
+      <site site="s2_5_t2" />
+      <site site="s2_6_t2" />
+      <site site="s2_7_t2" />
+      <site site="s2_8_t2" />
+      <site site="s2_9_t2" />
+      <site site="s2_10_t2" />
+    </spatial>
+    <spatial name="t_seg2_xn" width="0.002" rgba="0 1 1 1">
+      <site site="s1_10_top" />
+      <site site="s2_1_t3" />
+      <site site="s2_2_t3" />
+      <site site="s2_3_t3" />
+      <site site="s2_4_t3" />
+      <site site="s2_5_t3" />
+      <site site="s2_6_t3" />
+      <site site="s2_7_t3" />
+      <site site="s2_8_t3" />
+      <site site="s2_9_t3" />
+      <site site="s2_10_t3" />
+    </spatial>
+    <spatial name="t_seg2_yn" width="0.002" rgba="0 1 1 1">
+      <site site="s1_10_top" />
+      <site site="s2_1_t4" />
+      <site site="s2_2_t4" />
+      <site site="s2_3_t4" />
+      <site site="s2_4_t4" />
+      <site site="s2_5_t4" />
+      <site site="s2_6_t4" />
+      <site site="s2_7_t4" />
+      <site site="s2_8_t4" />
+      <site site="s2_9_t4" />
+      <site site="s2_10_t4" />
+    </spatial>
+  </tendon>
+  <actuator>
+    <position name="seg1_x_plus" tendon="t_seg1_xp" kp="5000" kv="100" ctrlrange="0.135 0.31" ctrllimited="true" forcerange="-500 500" />
+    <position name="seg1_x_minus" tendon="t_seg1_xn" kp="5000" kv="100" ctrlrange="0.135 0.31" ctrllimited="true" forcerange="-500 500" />
+    <position name="seg2_x_plus" tendon="t_seg2_xp" kp="5000" kv="100" ctrlrange="0.07 0.44" ctrllimited="true" forcerange="-500 500" />
+    <position name="seg2_y_plus" tendon="t_seg2_yp" kp="5000" kv="100" ctrlrange="0.07 0.44" ctrllimited="true" forcerange="-500 500" />
+    <position name="seg2_x_minus" tendon="t_seg2_xn" kp="5000" kv="100" ctrlrange="0.07 0.44" ctrllimited="true" forcerange="-500 500" />
+    <position name="seg2_y_minus" tendon="t_seg2_yn" kp="5000" kv="100" ctrlrange="0.07 0.44" ctrllimited="true" forcerange="-500 500" />
+  </actuator>
+</mujoco>
